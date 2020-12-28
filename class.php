@@ -1,22 +1,22 @@
 <?php
 
 class Person{
-    public $name = "Hasan";
-    public $age = "24";
+    public $name ;
+    public $age ;
+
+    public function __construct($n,$a){
+        $this->name=$n;
+        $this->age=$a;
+    }
 
     public function personName(){
-        echo "<br>Person name is : ".$this->name;
+        echo "My name Is : {$this->name} <br> My age is : {$this->age}";
     }
-    public function personAge($id){
-        echo "<br>Person name is : ".$this->age=$id;
-    }
+    
 
 }
-$personOne= New Person();
-
-echo "My name is :".$personOne->name;
-echo "<br>My age is :".$personOne->age;
+$personOne= New Person("hasan","24");
 echo $personOne->personName();
-echo $personOne->personAge(56);
+
 
 ?>
