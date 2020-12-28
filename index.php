@@ -19,8 +19,8 @@
     </table>
 </from> -->
 <form action="" method="post">
-    Name : <input require type = "number" name = "num1"/><br/><br/>
-    Email : <input require type = "number" name = "num2"/><br/><br/>
+    First Number : <input require type = "number" name = "num1"/><br/><br/>
+    Second Number : <input require type = "number" name = "num2"/><br/><br/>
     
     Dristic: 
     <select name="dristic" require>
@@ -47,16 +47,18 @@ if ($_SERVER['REQUEST_METHOD']=='POST'){
     $numOne = $_POST['num1'];
     $numTwo = $_POST['num2'];
 
-    echo  "hasan";
+    
     if(empty($numOne) or empty($numTwo)){
         echo "<span style='color:red'>fild must not be empty!</span>";
         
-    }
-    $cal = new Calculation;
+    }else{
+        $cal = new Calculation;
         $cal->add($numOne,$numTwo);
         $cal->sub($numOne,$numTwo);
         $cal->mul($numOne,$numTwo);
         $cal->div($numOne,$numTwo);
+    
+    }
     
 }
 
