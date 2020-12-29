@@ -13,7 +13,6 @@ class Person{
         echo "My name Is : {$this->name} <br> My age is : {$this->age}";
     }
     
-
 }
 $personOne= New Person("hasan","24");
 echo $personOne->personName();
