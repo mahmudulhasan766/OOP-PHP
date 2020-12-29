@@ -1,7 +1,7 @@
 <?php
 class UserData{
     public $user;
-    public $password;
+    protected $password;
 
     public function __construct($user,$pass){
         $this->user = $user;
@@ -27,7 +27,11 @@ $ps = "2324254";
 
 $ud = new UserData($user, $ps);
 $ud->display();
-$ad = new Admin($user,$ps);
-$ad->phone= "01913767156";
-$ad->display();
+$admin = new Admin($user,$ps);
+$admin->phone= "01913767156";
+$admin->display();
+
+if ($admin instanceof UserData){
+    echo "Inherited";
+}
 ?>
