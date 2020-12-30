@@ -1,19 +1,33 @@
 <?php
+class Java {
+    public $fromphp;
+    function __construct(Php $value){
+        $this->fromphp = $value;
+        $this->fromphp->framework();
+        $this->fromphp->cms();
+    }
+}
+?>
 
-class Calculation{
-    public function getArray(array $x){
-        foreach ($x as $value){
-            echo $value[0];
-            echo " : ";
-            echo $value[1]*$value[2]."<br/>";
-        }
+<?php
+
+class Php{
+    function framework(){
+
+        echo "Cake PHP is a framework. <br>";
+
+    }
+
+    function cms(){
+        echo "WordPress is a cms.";
+
     }
 }
 
-$cal = new Calculation();
-$name = array(
-        array('Number One',10,10),
-        array('Number One',30,67),
-);
-$cal->getArray($name);
+?>
+
+<?php
+
+new Java(new Php);
+
 ?>
