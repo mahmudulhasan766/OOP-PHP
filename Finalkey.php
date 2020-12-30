@@ -1,6 +1,7 @@
 <?php
 
- final class MyClass{
+ //final class MyClass{
+ class MyClass{
      function myFunc(){
         echo "This is the final keyword<br/>";
     
