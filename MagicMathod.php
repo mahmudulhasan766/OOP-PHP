@@ -1,6 +1,12 @@
 <?php
 
-
+/*
+__construct();
+__destruct();
+__get($property)
+__set($property,$vlaue)
+__get($method,$arg_arry)
+*/
 
 
 class Student {
