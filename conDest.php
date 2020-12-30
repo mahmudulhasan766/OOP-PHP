@@ -9,17 +9,15 @@ class UserData{
     const NAME = "  Hasan";
 
     public static function display(){
-        echo "My name is ".UserData::NAME."<br/>";
-        echo "My age is : ".self::$age;
+        echo "My name is ::::".UserData::NAME."<br/>";
+        echo __CLASS__."My age is :::: ".self::$age;
     }
     //.........   
 
     public function __construct($user,$pass){
         $this->user = $user;
         $this->password = $pass;
-
-        echo "hasan<br>";
-
+        echo "hasan<br>".__CLASS__."<br/>";
         echo "Usrename is :{$this->user}<br>and password is :{$this->password}<br>";
     }
 

@@ -1,8 +1,8 @@
 <?php
 
 class Students{
-    public function describe(){
-        echo "My name is hasan";
+    final public function describe(){
+        echo "My name is hasan<br>".__CLASS__;
     }
 }
 
