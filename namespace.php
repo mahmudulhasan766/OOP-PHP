@@ -7,7 +7,8 @@ function helloWorld(){
     echo "I am hello";
 }
 
-//use lib\module;
+use lib\module;
+//\elements as moduleElements;
 
 class elements{
     public function __construct(){
@@ -16,6 +17,8 @@ class elements{
 }
 $obj = new \Elements\elements;
 echo"<br>";
+
+//$ob = new moduleElements;
 $module = new \module\elements;
 echo"<br>";
 helloWorld();
@@ -25,4 +28,7 @@ echo"<br>";
 \module\helloWorld();
 echo"<br>";
 echo \module\VER;
+
+
+
 ?>
