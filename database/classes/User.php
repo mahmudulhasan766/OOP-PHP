@@ -26,11 +26,33 @@ class User{
 
        $query ="INSERT INTO `users`( `name`, `email`, `password`) VALUES ('$name','$email','$password')";
 
-       mysqli_query( $this->linkdb,$query);
+       mysqli_query($this->linkdb,$query);
 
        echo $name."<br>";
        echo $email."<br>";
        echo $password;
     }
-}
+    public function all_user(){
+        $qu ="SELECT * FROM `users`";
+        return mysqli_query($this->linkdb,$qu);
+    }
+    public function delete_user($id){
+        //$d_query = "";
+        mysqli_query($this->linkdb,"DELETE FROM `users` WHERE `id`='$id'");
+        //header('Location:index.php');
+        header('Location:index.php');
+    }
+    public function update_user($id){
+        return mysqli_query($this->linkdb,"SELECT * FROM `users` WHERE `id`='$id'");
+    }
+    public function update_user_save($data){
+       print_r($data);
+       $id = $data['id'];
+       $name = $data['name'];
+       $email = $data['email'];
+       
+       mysqli_query($this->linkdb,"UPDATE `users` SET `name`='$name',`email`='$email' WHERE `id`='$id'");
+       header('Location:index.php');
+    }
+} 
 ?>

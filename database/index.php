@@ -7,6 +7,9 @@ require_once 'classes/User.php';
      $user->save_user($_POST);
  }
 
+ $all_users=$user->all_user();
+ //print_r($all_users);
+
 ?>
 
 <!DOCTYPE html>
@@ -25,8 +28,31 @@ require_once 'classes/User.php';
 
     </form>
 
+    <hr/>
+    <table border>
+        <tr>
+            <th>Name</th>
+            <th>Emali</th>
+            <th>Action</th>
+        </tr>
+
+        <?php
+        while ($row=mysqli_fetch_assoc($all_users)){ 
+            ?>
+            <tr>
+            <td><?=$row['name'] ?></td>
+            <td><?=$row['email'] ?></td>
+            <td>
+                <a href="edit.php?id=<?=$row['id']?>">Edit</a>
+                <a href="delete.php?id=<?=$row['id']?>">Delete</a>
+            </td>
+            </tr>
 
 
+            <?php
+        }
+        ?>
+    </table>
 </body>
 
 </html>
