@@ -27,13 +27,14 @@ require_once 'classes/User.php';
         <input type="submit" value="Save User" name="save_users"/>
 
     </form>
-    <h3>
-        <?php
+    <?php
         if(isset($msg)){
-            echo $msg;
-        }
         ?>
-    </h3>
+        <h3><?= $msg ?></h3>
+        <?php
+        }
+
+    ?>
 
     <hr/>
     <table border>
