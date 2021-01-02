@@ -26,9 +26,9 @@ class User{
 
        $query ="INSERT INTO `users`( `name`, `email`, `password`) VALUES ('$name','$email','$password')";
        mysqli_query($this->linkdb,$query);
-       echo $name."<br>";
-       echo $email."<br>";
-       echo $password;
+    //    echo $name."<br>";
+    //    echo $email."<br>";
+    //    echo $password;
 
        $msg = "Data save Success!";
        return $msg;
