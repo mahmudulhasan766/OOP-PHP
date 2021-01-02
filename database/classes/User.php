@@ -25,12 +25,13 @@ class User{
        $password = $data['passworde'];
 
        $query ="INSERT INTO `users`( `name`, `email`, `password`) VALUES ('$name','$email','$password')";
-
        mysqli_query($this->linkdb,$query);
-
        echo $name."<br>";
        echo $email."<br>";
        echo $password;
+
+       $msg = "Data save Success!";
+       return $msg;
     }
     public function all_user(){
         $qu ="SELECT * FROM `users`";
@@ -53,6 +54,8 @@ class User{
        
        mysqli_query($this->linkdb,"UPDATE `users` SET `name`='$name',`email`='$email' WHERE `id`='$id'");
        header('Location:index.php');
+       $u_msg = "Update data seccessfully!!";
+       return $u_msg;
     }
 } 
 ?>

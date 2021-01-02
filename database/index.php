@@ -4,7 +4,7 @@ require_once 'classes/User.php';
  
  $user = new User();
  if(isset($_POST['save_users'])){
-     $user->save_user($_POST);
+     $msg =  $user->save_user($_POST);
  }
 
  $all_users=$user->all_user();
@@ -27,6 +27,13 @@ require_once 'classes/User.php';
         <input type="submit" value="Save User" name="save_users"/>
 
     </form>
+    <h3>
+        <?php
+        if(isset($msg)){
+            echo $msg;
+        }
+        ?>
+    </h3>
 
     <hr/>
     <table border>

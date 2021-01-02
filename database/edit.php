@@ -7,7 +7,7 @@ $id = $_GET['id'];
 $data = $user->update_user($id);
 $data = mysqli_fetch_assoc($data);
 if(isset($_POST['save_users'])){
-    $user->update_user_save($_POST);
+   $user->update_user_save($_POST);
 }
 
 ?>
@@ -27,6 +27,13 @@ if(isset($_POST['save_users'])){
     
         <input type="submit" value="Update User" name="save_users"/>
     </form>
+    <h3>
+        <?php
+        if(isset($u_msg)){
+            echo $u_msg;
+        }
+        ?>
+    </h3>
 
     <hr/>
 </body>
