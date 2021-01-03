@@ -1,13 +1,4 @@
 <?php
-
-
-    // define("DB_SERVER", "localhost");
-    // define("DB_USERNAME", "root");
-    // define("DB_PASSWORD", "");
-    // define("DB_DATABASE", "oop");
-
-    // $db = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
-
 class User{
     public function __construct()
     {
@@ -15,6 +6,7 @@ class User{
         $user = "root";
         $password = "";
         $database = "oop";
+
         $this->linkdb = mysqli_connect($host,$user,$password,$database);
     }
 
@@ -26,9 +18,7 @@ class User{
 
        $query ="INSERT INTO `users`( `name`, `email`, `password`) VALUES ('$name','$email','$password')";
        mysqli_query($this->linkdb,$query);
-    //    echo $name."<br>";
-    //    echo $email."<br>";
-    //    echo $password;
+  
 
        $msg = "Data save Success!";
        return $msg;
@@ -56,6 +46,27 @@ class User{
        header('Location:index.php');
        $u_msg = "Update data seccessfully!!";
        return $u_msg;
+    }
+
+    public function loginChack($data){
+       print_r ($data);
+
+        $email = $data['email'];
+        $password = $data['passworde']; 
+
+        $sql = "SELECT * FROM `users` WHERE `email` = '$email' AND `password`='$password'";
+
+        $result = mysqli_query($this->linkdb, $sql);
+
+        if($result){
+            if(mysqli_num_rows($result)==1){
+                header('Location:index.php');
+            }else {
+                $login_error = "Email and Password invaild!";
+            }
+        }else{
+            die();
+        }
     }
 } 
 ?>
